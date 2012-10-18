@@ -376,7 +376,7 @@ module DataMapper
     def update(attributes)
       assert_update_clean_only(:update)
       self.attributes = attributes
-      save
+      save_self(true)
     end
 
     # Updates attributes and saves this Resource instance, bypassing hooks
@@ -391,7 +391,7 @@ module DataMapper
     def update!(attributes)
       assert_update_clean_only(:update!)
       self.attributes = attributes
-      save!
+      save_self(false)
     end
 
     # Save the instance and loaded, dirty associations to the data-store
