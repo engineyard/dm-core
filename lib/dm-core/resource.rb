@@ -374,7 +374,7 @@ module DataMapper
     #
     # @api public
     def update(attributes)
-      assert_update_clean_only(:update)
+      assert_update_clean_only(:update, attributes)
       self.attributes = attributes
       save_self(true)
     end
@@ -389,7 +389,7 @@ module DataMapper
     #
     # @api public
     def update!(attributes)
-      assert_update_clean_only(:update!)
+      assert_update_clean_only(:update!, attributes)
       self.attributes = attributes
       save_self(false)
     end
@@ -1144,6 +1144,10 @@ module DataMapper
       model.hooks[name][type].each { |hook| hook.call(self) }
     end
 
+    def dirty_attributes_hash
+      self.dirty_attributes.inject({}){|r,(k,v)| r.merge(k.name => v)}
+    end
+
     # Raises an exception if #update is performed on a dirty resource
     #
     # @param [Symbol] method
@@ -1155,8 +1159,8 @@ module DataMapper
     #   raise if the resource is dirty
     #
     # @api private
-    def assert_update_clean_only(method)
-      if dirty?
+    def assert_update_clean_only(method, attributes={})
+      if dirty? && dirty_attributes_hash != attributes
         raise UpdateConflictError, "#{model}##{method} cannot be called on a #{new? ? 'new' : 'dirty'} resource"
       end
     end
