@@ -40,14 +40,14 @@ group :datamapper do
       gem "do_#{adapter}", DO_VERSION, do_options.dup
     end
 
-    gem 'dm-do-adapter', DM_VERSION,
-      SOURCE  => "#{DATAMAPPER}/dm-do-adapter#{REPO_POSTFIX}",
+    gem 'ardm-do-adapter', DM_VERSION,
+      SOURCE  => "#{DATAMAPPER}/ardm-do-adapter#{REPO_POSTFIX}",
       :branch => CURRENT_BRANCH
   end
 
   adapters.each do |adapter|
-    gem "dm-#{adapter}-adapter", ENV.fetch('ADAPTER_VERSION', DM_VERSION),
-      SOURCE  => "#{DATAMAPPER}/dm-#{adapter}-adapter#{REPO_POSTFIX}",
+    gem "ardm-#{adapter}-adapter", ENV.fetch('ADAPTER_VERSION', DM_VERSION),
+      SOURCE  => "#{DATAMAPPER}/ardm-#{adapter}-adapter#{REPO_POSTFIX}",
       :branch => CURRENT_BRANCH
   end
 
