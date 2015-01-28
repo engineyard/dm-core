@@ -9,8 +9,8 @@ before_install:
 script: "bundle exec rake spec"
 env:
   - "ADAPTER=in_memory"
-  - "ADAPTER=yaml"
-  - "ADAPTER=sqlite"
+#  - "ADAPTER=yaml"
+#  - "ADAPTER=sqlite"
   - "ADAPTER=mysql DM_DB_USER=root DM_DB_PASSWORD=''"
 rvm:
   - 1.9.3
