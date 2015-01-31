@@ -14,16 +14,6 @@ DO_VERSION     = '~> 0.10.6'
 DM_DO_ADAPTERS = %w[ sqlite postgres mysql oracle sqlserver ]
 CURRENT_BRANCH = ENV.fetch('GIT_BRANCH', 'master')
 
-platforms :mri_18 do
-  group :quality do
-
-    gem 'rcov',      '~> 0.9.10'
-    gem 'yard',      '~> 0.7.2'
-    gem 'yardstick', '~> 0.4'
-
-  end
-end
-
 group :datamapper do
 
   adapters = ENV['ADAPTERS'] || ENV['ADAPTER']

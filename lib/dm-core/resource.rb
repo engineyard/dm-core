@@ -280,7 +280,10 @@ module DataMapper
     # @api public
     def attribute_set(name, value)
       property = properties[name]
-      self.persistence_state = persistence_state.set(property, value) if property
+      if property
+        value = property.typecast(value)
+        self.persistence_state = persistence_state.set(property, value)
+      end
     end
 
     alias_method :[]=, :attribute_set
@@ -335,6 +338,10 @@ module DataMapper
               raise ArgumentError, "The attribute '#{name}' is not accessible in #{model}"
             end
           when Associations::Relationship, Property
+            # only call a public #typecast (e.g. on Property instances)
+            if name.respond_to?(:typecast)
+              value = name.typecast(value)
+            end
             self.persistence_state = persistence_state.set(name, value)
         end
       end

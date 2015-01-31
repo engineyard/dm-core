@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- spec/*`.split("\n")
   s.extra_rdoc_files = %w[LICENSE README.rdoc]
 
-  s.add_dependency('addressable', "~> 2.3")
+  s.add_dependency 'addressable', '~> 2.3', '>= 2.3.5'
 
-  s.add_development_dependency('rake',  '~> 0.9')
-  s.add_development_dependency('rspec', '~> 1.3')
+  s.add_development_dependency 'rake',  '~> 10.0'
+  s.add_development_dependency 'rspec', '~> 1.3'
 end
