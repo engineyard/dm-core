@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_paths = [ "lib" ]
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- spec/*`.split("\n")
-  s.extra_rdoc_files = %w[LICENSE README.rdoc]
+  s.extra_rdoc_files = %w[ LICENSE README.md ]
 
   s.add_dependency 'addressable', '~> 2.3', '>= 2.3.5'
 
