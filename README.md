@@ -37,7 +37,7 @@ it is possible to be more liberal with releases. Already, 1.3.0 versions are
 released for gems which had significant upgrade issues, such as `ardm-rails`,
 `ardm-active-model`, and `ardm-core`. At this point, using the newest ardm
 gems with versions matching ~> 1.2 (in order to include 1.3 releases) it should
-be possible to run rails 4.0 (and maybe 4.1 and 4.2) on ruby 2.0.0.
+be possible to run rails 4.0 (and maybe 4.1 and 4.2) on rubies up to 2.1.5.
 
 ## What about the `ardm` gem?
 
