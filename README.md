@@ -1,3 +1,12 @@
+[![Gem Version](https://badge.fury.io/rb/ardm-core.png)][gem]
+[![Build Status](https://travis-ci.org/ar-dm/ardm-core.png?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/ar-dm/ardm-core.png?travis)][gemnasium]
+
+[gem]: https://rubygems.org/gems/ardm-core
+[travis]: https://travis-ci.org/ar-dm/ardm-core
+[gemnasium]: https://gemnasium.com/ar-dm/ardm-core
+
+
 # ardm-core
 
 A fork of [`dm-core`](https://github.com/datamapper/dm-core).
@@ -51,5 +60,3 @@ and smart enough to "turn off" their datamapper functionality when `ardm` is
 switched to ActiveRecord mode. It may even be possible to scope fixes to the
 `ardm-` gem that needs those patches, get the tests passing for each gem,
 and thus allow each active record shim to be turned on or off as needed.
-
-
